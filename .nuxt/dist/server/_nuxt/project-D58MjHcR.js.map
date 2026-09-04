@@ -1,0 +1,1 @@
+{"version":3,"file":"project-D58MjHcR.js","sources":["../../../../layouts/project.vue"],"sourcesContent":["<template>\n  <div class=\"page\">\n    <slot />\n  </div>\n</template>\n\n<script setup lang=\"ts\">\n// project layout\n</script>\n"],"names":["_ssrRenderAttrs","_mergeProps"],"mappings":";;;;;;;AACO,YAAA,OAAAA,eAAAC,WAAA,EAAA,OAAM,UAAM,MAAA,CAAA,CAAA,GAAA;;;;;;;;;;;;"}
