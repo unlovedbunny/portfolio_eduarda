@@ -5,12 +5,11 @@
       <img class="nav__logo-icon" src="/img/favicon.png" alt="EM Logo" />
     </div>
 
-    <!-- Desktop: left links -->
     <div class="nav__group nav__group--left">
-      <a v-for="item in leftItems" :key="item.label" class="nav__item" :href="item.isExternal ? item.href : undefined" :target="item.isExternal ? '_blank' : undefined">
-        <NuxtLink v-if="!item.isExternal" :to="{ path: '/', hash: item.href }" class="nav__item">{{ item.label }}</NuxtLink>
-        <template v-else>{{ item.label }}</template>
-      </a>
+      <template v-for="item in leftItems" :key="item.label">
+        <a v-if="item.isExternal" class="nav__item" :href="item.href" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+        <NuxtLink v-else :to="{ path: '/', hash: item.href }" class="nav__item">{{ item.label }}</NuxtLink>
+      </template>
     </div>
 
     <div class="nav__group nav__group--center">
@@ -18,18 +17,18 @@
     </div>
 
     <div class="nav__group nav__group--right">
-      <a v-for="item in rightItems" :key="item.label" class="nav__item" :href="item.isExternal ? item.href : undefined" :target="item.isExternal ? '_blank' : undefined">
-        <NuxtLink v-if="!item.isExternal" :to="{ path: '/', hash: item.href }" class="nav__item">{{ item.label }}</NuxtLink>
-        <template v-else>{{ item.label }}</template>
-      </a>
+      <template v-for="item in rightItems" :key="item.label">
+        <a v-if="item.isExternal" class="nav__item" :href="item.href" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+        <NuxtLink v-else :to="{ path: '/', hash: item.href }" class="nav__item">{{ item.label }}</NuxtLink>
+      </template>
     </div>
 
-    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" @click="isOpen = !isOpen">
+    <button class="nav__hamburger" :class="{ 'is-active': isOpen }" id="hamburger" aria-label="Open menu" :aria-expanded="isOpen" @click="isOpen = !isOpen">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <div class="nav__drawer" :class="{ 'nav__drawer--open': isOpen }" id="drawer" :aria-hidden="!isOpen">
+  <div class="nav__drawer" :class="{ 'is-open': isOpen }" id="drawer" :aria-hidden="!isOpen">
     <template v-for="item in navItems" :key="item.label">
       <a v-if="item.isExternal" class="nav__item" :href="item.href" target="_blank" @click="isOpen = false">{{ item.label }}</a>
       <NuxtLink v-else :to="{ path: '/', hash: item.href }" class="nav__item" @click="isOpen = false">{{ item.label }}</NuxtLink>

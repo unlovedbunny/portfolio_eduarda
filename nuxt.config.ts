@@ -28,15 +28,15 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'pt-BR'
       },
-      title: 'Portfólio | Emilly Miller',
+      title: 'Portfólio | Eduarda Schneider',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Portfólio de Emilly Miller, Desenvolvedora Web Front-end.' },
-        { property: 'og:title', content: 'Portfólio | Emilly Miller' },
-        { property: 'og:description', content: 'Portfólio de Emilly Miller, Desenvolvedora Web Front-end.' },
-        { property: 'og:image', content: '/img/miller.png' },
-        { property: 'og:type', content: 'website' }
+        { name: 'description', content: 'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end.' },
+        { name: 'og:title', content: 'Portfólio | Eduarda Schneider' },
+        { name: 'og:description', content: 'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end.' },
+        { name: 'og:image', content: '/img/schneider.png' },
+        { name: 'og:type', content: 'website' }
       ],
       link: [
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon.png' }

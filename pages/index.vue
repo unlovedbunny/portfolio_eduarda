@@ -13,11 +13,11 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Portfólio | Emilly Miller',
-  description: 'Portfólio de Emilly Miller, Desenvolvedora Web Front-end. Transformo designs complexos do Figma em código de alta qualidade e performance.',
-  ogTitle: 'Portfólio | Emilly Miller',
-  ogDescription: 'Portfólio de Emilly Miller, Desenvolvedora Web Front-end.',
-  ogImage: '/img/miller.png',
+  title: 'Portfólio | Eduarda Schneider',
+  description: 'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end. Transformo designs complexos do Figma em código de alta qualidade e performance.',
+  ogTitle: 'Portfólio | Eduarda Schneider',
+  ogDescription: 'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end.',
+  ogImage: '/img/schneider.png',
   ogType: 'website',
 })
 </script>

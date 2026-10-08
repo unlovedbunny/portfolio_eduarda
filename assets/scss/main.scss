@@ -1,11 +1,23 @@
 @use 'sass:color';
 
-$orange:       #fd853a;
-$gray-900:     #171717;
-$gray-700:     #344054;
-$gray-300:     #d0d5dd;
-$gray-100:     #f3f4f6;
-$white:        #ffffff;
+$orange:       #f46c38;
+$orange-1:     #bb3306;
+$orange-2:     #c45226;
+$orange-deep:  #d9531f; // preenchimento do hover do botão principal
+
+// ── Paleta bege / marrom ──
+$beige:        #f5f0eb; // fundo principal
+$beige-deep:   #e8dfd5; // seção "Minhas Stacks"
+$beige-soft:   #fbf8f4; // superfícies (cards/tags), sem branco puro
+$ink:          #2a241d; // marrom escuro / grafite (texto)
+
+// Nomes antigos mantidos, agora com tons quentes (sem cinza frio)
+$gray-900:     $ink;
+$gray-700:     #5c4f42;
+$gray-300:     #d8cab9;
+$gray-100:     $beige-deep;
+$white:        #ffffff; // usado apenas para texto sobre fundos escuros
+$white-1:      #f5c084;
 $white-alpha-08: rgba(255, 255, 255, 0.08);
 $white-alpha-10: rgba(255, 255, 255, 0.10);
 $white-alpha-12: rgba(255, 255, 255, 0.12);
@@ -15,11 +27,60 @@ $white-alpha-25: rgba(255, 255, 255, 0.25);
 $white-alpha-35: rgba(255, 255, 255, 0.35);
 $white-alpha-60: rgba(255, 255, 255, 0.60);
 $white-alpha-90: rgba(255, 255, 255, 0.90);
-$gray-900-alpha-04: rgba(23, 23, 23, 0.04);
-$gray-900-alpha-08: rgba(23, 23, 23, 0.08);
-$orange-alpha-08: rgba(253, 133, 58, 0.08);
-$orange-alpha-12: rgba(253, 133, 58, 0.12);
-$orange-alpha-50: rgba(253, 133, 58, 0.50);
+$gray-900-alpha-04: rgba(42, 36, 29, 0.04);
+$gray-900-alpha-08: rgba(42, 36, 29, 0.08);
+$orange-alpha-08: rgba(244, 108, 56, 0.08);
+$orange-alpha-12: rgba(244, 108, 56, 0.12);
+$orange-alpha-50: rgba(244, 108, 56, 0.50);
+
+// ── Hover / interação ──────────────────────────────────
+$ease-organic:     cubic-bezier(0.25, 0.8, 0.25, 1);
+$transition-hover: all 0.3s $ease-organic;
+$hover-scale:      1.03;
+$shadow-dark:      rgba(42, 36, 29, 0.18);   // fundos claros
+$shadow-dark-soft: rgba(42, 36, 29, 0.10);   // sombra discreta em cards
+$shadow-on-dark:   rgba(0, 0, 0, 0.35);      // fundos escuros
+$shadow-orange:    rgba(244, 108, 56, 0.35); // destaque laranja
+
+// Escala leve + sombra que "foge" do cursor.
+// --mx / --my (-1 a 1) são atualizados por plugins/hover-shadow.client.ts
+@mixin hover-lift($shadow: $shadow-dark, $base-transform: null) {
+  @if $base-transform {
+    transform: #{$base-transform} scale($hover-scale);
+  } @else {
+    transform: scale($hover-scale);
+  }
+  box-shadow: calc(var(--mx, 0) * -12px) calc(var(--my, 0) * -12px + 14px) 30px $shadow;
+}
+
+// Botão com preenchimento que desliza de um lado ao outro no hover
+// e "squish" (scale .97) ao clicar — sensação de botão físico e macio.
+@mixin slide-fill($fill, $base: transparent) {
+  background-color: $base;
+  background-image: linear-gradient($fill, $fill);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 0% 100%;
+  transition:
+    background-size 0.5s $ease-organic,
+    background-position 0.5s $ease-organic,
+    color 0.3s ease,
+    transform 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-position: left center;
+    background-size: 100% 100%;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: color 0.2s ease;
+  }
+}
 
 // ── Fontes ─────────────────────────────────────────────
 $font-display: 'Urbanist', sans-serif;
@@ -48,7 +109,7 @@ html {
 
 body {
   font-family: $font-body;
-  background: $white;
+  background: $beige;
   color: $gray-900;
   min-height: 100vh;
   overflow-x: hidden;
@@ -84,7 +145,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: min(1298px, calc(100vw - 40px));
+  width: 100%;
+  max-width: min(1298px, calc(100vw - 40px));
   height: 86px;
   margin-top: 20px;
   padding: 0 10px;
@@ -104,13 +166,24 @@ button {
 .nav__group {
   display: flex;
   align-items: center;
+  gap: 2px;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+.nav__group--left {
+  justify-content: flex-end;
+}
+
+.nav__group--right {
+  justify-content: flex-start;
 }
 
 .nav__group--center {
-  display: flex;
-  gap: 10px;
-  padding: 20px 40px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 0 clamp(12px, 2vw, 28px);
 }
 
 .nav__logo-icon {
@@ -139,11 +212,13 @@ button {
   letter-spacing: -0.3px;
   color: $white;
   white-space: nowrap;
-  transition: background 0.2s;
+  transition: $transition-hover;
 }
 
-.nav__item:hover {
-  background: $white-alpha-08;
+.nav__item:hover,
+.nav__item:focus-visible {
+  background: $white-alpha-12;
+  outline: none;
 }
 
 .nav__item--active {
@@ -228,6 +303,13 @@ button {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+@media (min-width: ($bp-md + 1px)) {
+  .nav__drawer,
+  .nav__drawer.is-open {
+    display: none;
+  }
 }
 
 // HERO
@@ -380,10 +462,10 @@ button {
   transform: translateX(-50%);
   width: 85%;
   height: 63%;
-  background: $orange;
+  background-color: $orange-1;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   z-index: 0;
-  opacity: 0.87;
+  opacity: 1; // 1 = cor exata #f46c38 (antes 0.87 deixava o tom mais claro)
 }
 
 .hero__photo {
@@ -395,7 +477,12 @@ button {
   object-position: center bottom;
   z-index: 1;
   pointer-events: none;
+  
+  /* Faz a imagem crescer a partir do centro inferior (bottom) */
+  transform: scale(1.1);
+  transform-origin: center bottom;
 }
+
 
 .hero__cta-pill {
   position: absolute;
@@ -423,7 +510,6 @@ button {
   flex-shrink: 0;
   width: clamp(140px, 15vw, 208px);
   padding: 10px 20px;
-  background: $orange;
   border: 0.5px solid $gray-300;
   border-radius: 60px;
   cursor: pointer;
@@ -432,18 +518,20 @@ button {
   letter-spacing: -0.4px;
   color: $white;
   white-space: nowrap;
-  transition: background 0.2s, transform 0.15s;
-}
-
-.hero__cta-primary:hover {
-  background: color.adjust($orange, $lightness: -6%);
-  transform: scale(1.03);
+  @include slide-fill($orange-deep, $orange);
 }
 
 .hero__cta-arrow {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+  transition: transform 0.35s $ease-organic;
+}
+
+// A setinha dá um empurrãozinho diagonal junto com o preenchimento
+.hero__cta-primary:hover .hero__cta-arrow,
+.hero__cta-primary:focus-visible .hero__cta-arrow {
+  transform: translate(2px, -2px);
 }
 
 .hero__cta-secondary {
@@ -452,7 +540,6 @@ button {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background: transparent;
   border: none;
   border-radius: 60px;
   cursor: pointer;
@@ -461,11 +548,7 @@ button {
   letter-spacing: -0.4px;
   color: $white;
   white-space: nowrap;
-  transition: background 0.2s;
-}
-
-.hero__cta-secondary:hover {
-  background: $white-alpha-12;
+  @include slide-fill($white-alpha-22);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -479,24 +562,24 @@ button {
   }
 
   .nav__item {
-    padding: 12px 22px;
+    padding: 12px 18px;
     font-size: 16px;
   }
 
   .nav__group--center {
-    padding: 14px 24px;
+    padding: 0 20px;
   }
 }
 
 // ── Tablet (< 1024px) ───────────────────────────────────
 @media (max-width: $bp-lg) {
   .nav__item {
-    padding: 10px 16px;
-    font-size: 15px;
+    padding: 10px 12px;
+    font-size: 14px;
   }
 
   .nav__group--center {
-    padding: 10px 20px;
+    padding: 0 14px;
   }
 
   .nav__logo-typo {
@@ -700,16 +783,18 @@ button {
     transform: translateX(-50%);
   }
 
-  .hero__photo {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center bottom;
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  z-index: 1;
+  pointer-events: none;
+  transform: scale(1.15); /* Adicione essa linha (aumenta 15%) */
+}
 
-    transform: translateY(-40px);
-  }
 
   .hero__cta-pill {
     width: min(300px, 84vw);
@@ -808,12 +893,13 @@ button {
 .services {
   position: relative;
   width: 100vw;
-  margin: 80px 0 60px;
+  margin: 100px 0 50px;
   border-radius: 50px;
   overflow: hidden;
   isolation: isolate;
 }
 
+//tamanho perto da minha imagem
 @media (min-width: ($bp-lg + 1px)) {
   .services {
     margin-top: -48px;
@@ -824,7 +910,7 @@ button {
 
 @media (max-width: $bp-lg) {
   .services {
-    margin-top: 60px; 
+    margin-top: 600px; 
   }
 }
 
@@ -842,7 +928,7 @@ button {
 .services__inner {
   position: relative;
   z-index: 1;
-  padding: 64px clamp(24px, 5vw, 72px) 56px;
+  padding: 40px clamp(14px, 5vw, 48px) 32px;
 }
 
 .services__header {
@@ -916,13 +1002,13 @@ button {
   -webkit-backdrop-filter: blur(10px);
   color: $white;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s, opacity 0.2s;
+  transition: $transition-hover;
 }
 
 .services__nav:hover {
   background: $orange;
   border-color: $orange;
-  transform: translateY(-50%) scale(1.06);
+  @include hover-lift($shadow-orange, translateY(-50%));
 }
 
 .services__nav:disabled {
@@ -934,6 +1020,7 @@ button {
   background: $white-alpha-12;
   border-color: $white-alpha-25;
   transform: translateY(-50%);
+  box-shadow: none;
 }
 
 .services__nav--prev {
@@ -947,6 +1034,7 @@ button {
 .service-card {
   position: relative;
   flex-shrink: 0;
+  width: calc((100% - 48px) / 3); /* 3 cards na tela grande (com 2 espaços de 24px) */
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -958,14 +1046,20 @@ button {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  transition: $transition-hover;
   user-select: none;
 }
 
+@media (max-width: 1299px) {
+  .service-card {
+    width: calc((100% - 24px) / 2); /* 2 cards em telas entre 1024 e 1300 */
+  }
+}
+
 .service-card:hover {
-  transform: translateY(-4px);
   background: $white-alpha-12;
   border-color: $orange-alpha-50;
+  @include hover-lift($shadow-on-dark);
 }
 
 .service-card__title {
@@ -1049,6 +1143,7 @@ button {
 
   .service-card {
     min-height: 320px;
+    width: calc((100% - 24px) / 2); /* 2 cards em telas médias */
   }
 
   .services__nav {
@@ -1082,6 +1177,7 @@ button {
   .service-card {
     min-height: 280px;
     padding: 20px;
+    width: 100%; /* 1 card no celular */
   }
 
   .services__dots {
@@ -1112,7 +1208,7 @@ button {
 // ═══════════════════════════════════════════════════════
 .experience {
   width: 100%;
-  background: $white;
+  background: $beige;
   padding: 80px 0;
 }
 
@@ -1333,14 +1429,14 @@ button {
 .hire {
   width: 100%;
   padding: 40px 0 80px;
-  background: $white;
+  background: $beige;
 }
 
 .hire__card {
   width: 100vw;
   margin: 0;
   padding: clamp(32px, 5vw, 64px) clamp(40px, 8vw, 120px);
-  background: $gray-100;
+  background: $beige-deep; // um a dois tons abaixo do bege de fundo
   border-radius: 50px;
   display: grid;
   grid-template-columns: minmax(280px, 1fr) 1.2fr;
@@ -1354,14 +1450,25 @@ button {
   max-width: 460px;
   aspect-ratio: 4 / 5;
   margin: 0 auto;
+  transition: $transition-hover;
+}
+
+// Hover na imagem: só escala; a sombra vai no blob (segue o border-radius)
+.hire__photo-wrap:hover {
+  transform: scale($hover-scale);
 }
 
 .hire__blob {
   position: absolute;
   inset: 0;
-  background: $orange;
+  background-color: $orange; // #f46c38 atrás do PNG transparente
   border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
   z-index: 0;
+  transition: $transition-hover;
+}
+
+.hire__photo-wrap:hover .hire__blob {
+  box-shadow: calc(var(--mx, 0) * -12px) calc(var(--my, 0) * -12px + 14px) 30px $shadow-orange;
 }
 
 .hire__photo {
@@ -1372,6 +1479,60 @@ button {
   object-fit: cover;
   object-position: center bottom;
   border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+}
+
+.hire__borogodo {
+  position: absolute;
+  top: 15%;
+  right: -8%;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  
+  .hire__borogodo-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hire__borogodo-img {
+    width: 58%;
+    height: 58%;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+  }
+  
+  .hire__borogodo-text {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: $ink;
+    transition: fill 0.3s $ease-organic;
+    animation: rotateBadgeHire 10s linear infinite;
+    z-index: 1;
+    
+    text {
+      font-family: $font-display;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+  }
+
+  &:hover .hire__borogodo-text {
+    fill: $orange;
+  }
+}
+
+@keyframes rotateBadgeHire {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .hire__content {
@@ -1435,18 +1596,24 @@ button {
   align-items: center;
   gap: 9px;
   padding: 9px 18px 9px 12px;
-  background: $white;
+  background: $beige-soft;
   border: 1.5px solid $gray-300;
   border-radius: 60px;
   font-size: 14px;
   letter-spacing: -0.2px;
   color: $gray-700;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 
+  // O card quase não muda: só um brilho ínfimo na borda
   &:hover {
-    border-color: $orange;
+    border-color: $orange-alpha-50;
+    box-shadow: 0 0 0 3px $orange-alpha-08;
     color: $gray-900;
-    background: $orange-alpha-08;
+  }
+
+  // Quem reage é o ícone
+  &:hover .hire__skill-icon {
+    animation: icon-hop 0.55s $ease-organic;
   }
 }
 
@@ -1455,6 +1622,20 @@ button {
   height: 18px;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+// Pulinho suave com leve inclinação, volta ao normal
+@keyframes icon-hop {
+  0%   { transform: translateY(0) rotate(0deg); }
+  35%  { transform: translateY(-4px) rotate(-8deg); }
+  65%  { transform: translateY(0) rotate(5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hire__skill-tag:hover .hire__skill-icon {
+    animation: none;
+  }
 }
 
 .hire__stats {
@@ -1496,17 +1677,15 @@ button {
   font-size: 18px;
   letter-spacing: -0.3px;
   color: $gray-900;
-  background: transparent;
   border: 1.5px solid $gray-900;
   border-radius: 60px;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+  @include slide-fill($gray-900);
 }
 
-.hire__cta:hover {
-  background: $gray-900;
-  color: $white;
-  transform: translateY(-2px);
+.hire__cta:hover,
+.hire__cta:focus-visible {
+  color: $beige;
 }
 
 // ═══════════════════════════════════════════════════════
@@ -1599,7 +1778,7 @@ button {
 // ═══════════════════════════════════════════════════════
 .contact {
   width: 100%;
-  background: $white;
+  background: $beige;
   padding: 80px 0 100px;
 }
 
@@ -1649,19 +1828,23 @@ button {
   align-items: center;
   gap: 18px;
   padding: 36px 24px;
-  background: $white;
+  background: $beige-soft;
   border: 1.5px solid $gray-300;
   border-radius: 20px;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
 }
 
 .contact-card:hover {
-  transform: translateY(-6px);
-  border-color: $orange;
-  box-shadow: 0 12px 28px $gray-900-alpha-08;
+  border-color: $orange-alpha-50;
+  background: $beige-soft;
+  box-shadow: 0 10px 28px $shadow-dark-soft;
+}
+
+.contact-card:active {
+  transform: scale(0.98);
 }
 
 .contact-card:hover .contact-card__icon {
@@ -1673,6 +1856,7 @@ button {
 }
 
 .contact-card__icon {
+  position: relative;
   width: 72px;
   height: 72px;
   display: flex;
@@ -1687,6 +1871,73 @@ button {
   width: 72px;
   height: 72px;
   object-fit: contain;
+  transform-origin: 50% 85%; // balança a partir da base, como um aceno
+}
+
+// Aceno: balançadinha rápida e contida (±12°)
+@keyframes icon-wave {
+  0%   { transform: rotate(0deg); }
+  18%  { transform: rotate(-12deg); }
+  38%  { transform: rotate(10deg); }
+  58%  { transform: rotate(-7deg); }
+  78%  { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.contact-card:hover .contact-card__icon img,
+.contact-card:focus-visible .contact-card__icon img {
+  animation: icon-wave 0.65s ease-in-out;
+}
+
+// Tooltip minimalista (nome da rede)
+.contact-card__icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  padding: 5px 11px;
+  background: $gray-900;
+  color: $beige;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  white-space: nowrap;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translate(-50%, 4px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+.contact-card__icon::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: $gray-900;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translate(-50%, 4px) rotate(45deg);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 1;
+}
+
+.contact-card:hover .contact-card__icon::after,
+.contact-card:focus-visible .contact-card__icon::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.contact-card:hover .contact-card__icon::before,
+.contact-card:focus-visible .contact-card__icon::before {
+  opacity: 1;
+  transform: translate(-50%, 0) rotate(45deg);
 }
 
 .contact-card__info {
@@ -1711,6 +1962,21 @@ button {
   opacity: 0.65;
   letter-spacing: -0.2px;
   word-break: break-all;
+}
+
+// Sem hover (touch) ou com movimento reduzido: sem tooltip/animações
+@media (hover: none) {
+  .contact-card__icon::before,
+  .contact-card__icon::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-card:hover .contact-card__icon img,
+  .contact-card:focus-visible .contact-card__icon img {
+    animation: none;
+  }
 }
 
 // ═══════════════════════════════════════════════════════
@@ -1805,12 +2071,13 @@ button {
 /* PROJETO CSS */
 
 :root {
-  --orange: #fd853a;
-  --gray-900: #171717;
-  --gray-700: #344054;
-  --gray-300: #d0d5dd;
-  --gray-100: #f3f4f6;
-  --white: #ffffff;
+  --orange: #f46c38;
+  --gray-900: #2a241d; // grafite amarronzado (texto)
+  --gray-700: #5c4f42;
+  --gray-300: #d8cab9;
+  --gray-100: #e8dfd5;
+  --white: #fbf8f4; // creme claro (substitui o branco puro)
+  --beige: #f5f0eb;
   --font-display: "Urbanist", sans-serif;
   --font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
 }
@@ -1829,7 +2096,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--gray-100);
+  background: var(--beige);
   color: var(--gray-900);
   min-height: 100vh;
   overflow-x: hidden;
@@ -1866,7 +2133,7 @@ button {
   justify-content: space-between;
   gap: 16px;
   padding: 18px clamp(20px, 5vw, 48px);
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(245, 240, 235, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--gray-300);
@@ -1879,12 +2146,12 @@ button {
   font-weight: 600;
   font-size: 15px;
   color: var(--gray-700);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: $transition-hover;
 }
 
 .pp-back:hover {
   color: var(--orange);
-  transform: translateX(-3px);
+  transform: translateX(-3px) scale($hover-scale);
 }
 
 .pp-brand {
@@ -1969,18 +2236,17 @@ button {
   padding: 13px 24px;
   border-radius: 999px;
   border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: $transition-hover;
 }
 
 .pp-btn--primary {
   background: var(--orange);
   color: var(--white);
-  box-shadow: 0 8px 20px rgba(253, 133, 58, 0.3);
+  box-shadow: 0 8px 20px rgba(244, 108, 56, 0.3);
 }
 
 .pp-btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(253, 133, 58, 0.4);
+  @include hover-lift($shadow-orange);
 }
 
 .pp-btn--ghost {
@@ -1990,8 +2256,8 @@ button {
 }
 
 .pp-btn--ghost:hover {
-  transform: translateY(-2px);
   border-color: var(--gray-700);
+  @include hover-lift($shadow-dark);
 }
 
 /* ── Vídeo ────────────────────────────────────────────── */
@@ -2015,7 +2281,7 @@ button {
   border-radius: 24px;
   overflow: hidden;
   background: #000;
-  box-shadow: 0 18px 50px rgba(23, 23, 23, 0.18);
+  box-shadow: 0 18px 50px rgba(42, 36, 29, 0.18);
 }
 
 .pp-video iframe,
@@ -2041,12 +2307,11 @@ button {
   background: var(--white);
   border: 1px solid var(--gray-300);
   cursor: zoom-in;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: $transition-hover;
 }
 
 .pp-gallery__item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(23, 23, 23, 0.16);
+  @include hover-lift($shadow-dark);
 }
 
 .pp-gallery__item img {
@@ -2069,7 +2334,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 32px;
-  background: rgba(23, 23, 23, 0.88);
+  background: rgba(42, 36, 29, 0.88);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }

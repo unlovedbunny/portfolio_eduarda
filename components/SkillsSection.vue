@@ -3,7 +3,22 @@
     <div class="hire__card">
       <div class="hire__photo-wrap">
         <div class="hire__blob" aria-hidden="true"></div>
-        <img class="hire__photo" src="/img/miller.png" alt="Emilly, Front-end Developer" />
+        <img class="hire__photo" src="/img/schneider.png" alt="Eduarda, Front-end Developer" />
+        
+        <!-- Borogodó Badge with Image -->
+        <div class="hire__borogodo">
+          <div class="hire__borogodo-inner">
+            <img src="~/assets/img/kanagawa.jpg" alt="Kanagawa" class="hire__borogodo-img" />
+            <svg viewBox="0 0 100 100" class="hire__borogodo-text">
+              <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="transparent" />
+              <text>
+                <textPath href="#circlePath" startOffset="0%">
+                  NÃO SE COPIA BOROGODÓ • NÃO SE COPIA BOROGODÓ •
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </div>
       </div>
 
       <div class="hire__content" id="contratar">

@@ -4,7 +4,7 @@
       <!-- Cabeçalho -->
       <header class="contact__header">
         <h2 class="contact__title">
-          Entre em <span class="contact__title--accent">Contato</span>
+          Fale <span class="contact__title--accent">comigo</span>
         </h2>
         <p class="contact__desc">
           Vamos conversar sobre o seu próximo projeto. Me encontre em qualquer
@@ -22,7 +22,7 @@
           :rel="link.isExternal ? 'noopener noreferrer' : undefined"
           :aria-label="`Open ${link.platform}`"
         >
-          <div class="contact-card__icon">
+          <div class="contact-card__icon" :data-tooltip="link.platform">
             <img :src="link.icon" alt="" />
           </div>
           <div class="contact-card__info">

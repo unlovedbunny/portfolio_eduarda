@@ -32,7 +32,7 @@
     <!-- Photo + circle + CTA -->
     <div class="hero__photo-wrap">
       <div class="hero__circle"></div>
-      <img class="hero__photo" src="/img/miller.png" alt="Emilly Miller, Front-end Developer" />
+      <img class="hero__photo" src="/img/schneider.png" alt="Eduarda Schneider, Front-end Developer" />
       <div class="hero__cta-pill">
         <NuxtLink to="#servicesCarousel" class="hero__cta-primary">
           Portfólio

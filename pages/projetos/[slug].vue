@@ -24,9 +24,9 @@ const project = computed(() => PROJECTS.find(p => p.slug === route.params.slug))
 
 if (project.value) {
   useSeoMeta({
-    title: `${project.value.title} | Emilly Miller`,
+    title: `${project.value.title} | Eduarda Schneider`,
     description: project.value.description,
-    ogTitle: `${project.value.title} | Emilly Miller`,
+    ogTitle: `${project.value.title} | Eduarda Schneider`,
     ogImage: project.value.image,
   })
 }

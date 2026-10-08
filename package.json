@@ -16,6 +16,8 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "sass": "^1.77.0"
+    "sass": "^1.77.0",
+    "typescript": "^7.0.2",
+    "vue-tsc": "^3.3.12"
   }
 }

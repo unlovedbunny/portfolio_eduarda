@@ -8,7 +8,7 @@ import type {
 } from '~/types/portfolio'
 
 export const PROFILE: ProfileData = {
-  name: 'Emilly',
+  name: 'Eduarda',
   role: 'Dev Web',
   testimonial: 'Transformo designs complexos\ndo Figma em código de alta\nqualidade e performance.',
   yearsExperience: '1 ano +',
@@ -90,10 +90,10 @@ export const SKILL_GROUPS: SkillGroup[] = [
 ]
 
 export const CONTACTS: ContactLink[] = [
-  { platform: 'Email', href: 'mailto:milleremilly5@gmail.com', icon: '/img/email.png', handle: 'milleremilly5@gmail.com' },
-  { platform: 'LinkedIn', href: 'https://www.linkedin.com/in/emilly-miller-8b624a303/', icon: '/img/linkedin.png', handle: '/in/emilly-miller-8b624a303', isExternal: true },
-  { platform: 'Instagram', href: 'https://www.instagram.com/emillymilleer/', icon: '/img/insta.png', handle: '@emillymilleer', isExternal: true },
-  { platform: 'GitHub', href: 'https://github.com/emmily5', icon: '/img/github.png', handle: '/emmily5', isExternal: true }
+  { platform: 'Email', href: 'mailto:contato.eduardafdl@gmail.com', icon: '/img/email.png', handle: 'contato.eduardafdl@gmail.com' },
+  { platform: 'LinkedIn', href: 'https://www.linkedin.com/in/duda-schneider/', icon: '/img/linkedin.png', handle: '/in/duda-schneider', isExternal: true },
+  { platform: 'Instagram', href: 'https://www.instagram.com/unloved.bunny/', icon: '/img/insta.png', handle: '@unloved.bunny', isExternal: true },
+  { platform: 'GitHub', href: 'https://github.com/unlovedbunny', icon: '/img/github.png', handle: '/unlovedbunny', isExternal: true }
 ]
 
 export const PROJECTS: Project[] = [
