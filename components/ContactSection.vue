@@ -4,12 +4,9 @@
       <!-- Cabeçalho -->
       <header class="contact__header">
         <h2 class="contact__title">
-          Fale <span class="contact__title--accent">comigo</span>
+          {{ text.title }} <span class="contact__title--accent">{{ text.titleAccent }}</span>
         </h2>
-        <p class="contact__desc">
-          Vamos conversar sobre o seu próximo projeto. Me encontre em qualquer
-          uma dessas redes.
-        </p>
+        <p class="contact__desc">{{ text.description }}</p>
       </header>
 
       <div class="contact__grid">
@@ -36,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { CONTACTS } from '~/data/portfolio'
+import { CONTACTS, SITE_TEXT } from '~/data/portfolio'
 const contacts = CONTACTS
+const text = SITE_TEXT.contact
 </script>

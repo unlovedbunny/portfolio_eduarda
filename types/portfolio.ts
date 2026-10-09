@@ -4,6 +4,19 @@ export interface NavItem {
   isExternal?: boolean;
 }
 
+export interface ProjectSection {
+  title: string;
+  /** Parágrafos de texto corrido */
+  paragraphs?: string[];
+  /** Lista de itens (label em negrito opcional + texto) */
+  items?: { label?: string; text: string }[];
+}
+
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -13,6 +26,10 @@ export interface Project {
   tags: string[];
   liveUrl?: string;
   driveUrl?: string;
+  /** Blocos de texto estruturados exibidos abaixo do cabeçalho */
+  sections?: ProjectSection[];
+  /** Links extras (edital, equipe, notícias...) */
+  links?: ProjectLink[];
   video?: {
     type: 'iframe' | 'video';
     src: string;

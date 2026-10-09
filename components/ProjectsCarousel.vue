@@ -7,13 +7,9 @@
       <!-- Cabeçalho -->
       <header class="services__header">
         <h2 class="services__title">
-          Alguns projetos,<span class="services__title--accent"> clique e saiba +</span>
+          {{ text.title }}<span class="services__title--accent">{{ text.titleAccent }}</span>
         </h2>
-        <p class="services__desc">
-          Desenvolvimento de interfaces modernas, responsivas e com foco
-          absoluto em otimização e refatoração de páginas para garantir a
-          melhor performance.
-        </p>
+        <p class="services__desc">{{ text.description }}</p>
       </header>
 
       <!-- Carrossel -->
@@ -57,9 +53,10 @@
 </template>
 
 <script setup lang="ts">
-import { PROJECTS } from '~/data/portfolio'
+import { PROJECTS, SITE_TEXT } from '~/data/portfolio'
 import { useCarousel } from '~/composables/useCarousel'
 
 const projects = PROJECTS
+const text = SITE_TEXT.projects
 const { currentIndex, carouselTrack, touchStart, touchMove, touchEnd, next, prev, goTo, cardsPerView } = useCarousel(projects.length)
 </script>

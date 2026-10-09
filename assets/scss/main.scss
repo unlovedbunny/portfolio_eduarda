@@ -2316,13 +2316,89 @@ button {
 
 .pp-gallery__item img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
   object-fit: cover;
 }
 
 /* Primeiro item ocupa a linha inteira (destaque) */
 .pp-gallery__item--wide {
   grid-column: 1 / -1;
+}
+
+/* Vídeo dentro da galeria mantém proporção 16:9 */
+.pp-gallery__item.pp-video {
+  cursor: default;
+}
+
+/* ── Textos estruturados do projeto ───────────────────── */
+.pp-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pp-info__card {
+  background: $beige-soft;
+  border: 1px solid $gray-300;
+  border-radius: 20px;
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.pp-info__card:first-child {
+  grid-column: 1 / -1;
+}
+
+.pp-info__title {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: clamp(18px, 2vw, 22px);
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  color: $gray-900;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: $orange;
+  }
+}
+
+.pp-info__text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: $gray-700;
+
+  + .pp-info__text {
+    margin-top: 12px;
+  }
+}
+
+.pp-info__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: $gray-700;
+    padding-left: 16px;
+    border-left: 3px solid $orange-alpha-50;
+  }
+
+  strong {
+    color: $gray-900;
+  }
+}
+
+.pp-actions--links {
+  margin-top: 24px;
 }
 
 /* ── Lightbox ─────────────────────────────────────────── */
@@ -2397,7 +2473,8 @@ button {
 
 /* ── Responsivo ───────────────────────────────────────── */
 @media (max-width: 640px) {
-  .pp-gallery {
+  .pp-gallery,
+  .pp-info {
     grid-template-columns: 1fr;
   }
 }

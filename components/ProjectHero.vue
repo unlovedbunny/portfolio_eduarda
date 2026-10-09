@@ -1,33 +1,45 @@
 <template>
-  <div class="pp-header">
-    <div class="pp-header__content">
-      <span class="pp-header__eyebrow">{{ project.eyebrow }}</span>
-      <h1 class="pp-header__title">{{ project.title }}</h1>
-      <p class="pp-header__desc">{{ project.description }}</p>
-      <div class="pp-header__tags">
-        <span class="pp-header__tag" v-for="tag in project.tags" :key="tag">{{ tag }}</span>
+  <header class="pp-topbar">
+    <NuxtLink to="/#servicesCarousel" class="pp-back">
+      <IconsIconChevron /> {{ text.back }}
+    </NuxtLink>
+    <div class="pp-brand">
+      <img src="/img/favicon.png" :alt="text.brandAlt" />
+      <span>{{ profile.name }}</span>
+    </div>
+  </header>
+
+  <section class="pp-hero">
+    <div class="pp-wrap">
+      <span class="pp-eyebrow">{{ project.eyebrow }}</span>
+      <h1 class="pp-title">{{ project.title }}</h1>
+      <p class="pp-lead">{{ project.description }}</p>
+
+      <div class="pp-tags">
+        <span class="pp-tag" v-for="tag in project.tags" :key="tag">{{ tag }}</span>
+      </div>
+
+      <div class="pp-actions">
+        <a v-if="project.liveUrl" :href="project.liveUrl" target="_blank" rel="noopener noreferrer" class="pp-btn pp-btn--primary">
+          {{ text.openOnline }} <IconsIconArrowUpRight />
+        </a>
+        <a v-if="project.driveUrl" :href="project.driveUrl" target="_blank" rel="noopener noreferrer" class="pp-btn pp-btn--primary">
+          {{ text.openOnline }} <IconsIconArrowUpRight />
+        </a>
+        <NuxtLink to="/#contato" class="pp-btn pp-btn--ghost">{{ text.contact }}</NuxtLink>
       </div>
     </div>
-    
-    <div class="pp-header__actions">
-      <NuxtLink to="/" class="pp-btn pp-btn--secondary">
-        <IconsIconChevron /> Voltar
-      </NuxtLink>
-      
-      <a v-if="project.liveUrl" :href="project.liveUrl" target="_blank" class="pp-btn pp-btn--primary">
-        Acessar online <IconsIconArrowUpRight />
-      </a>
-      <a v-if="project.driveUrl" :href="project.driveUrl" target="_blank" class="pp-btn pp-btn--primary">
-        Acessar online <IconsIconArrowUpRight />
-      </a>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 import type { Project } from '~/types/portfolio'
+import { PROFILE, SITE_TEXT } from '~/data/portfolio'
 
 defineProps<{
   project: Project
 }>()
+
+const text = SITE_TEXT.projectPage
+const profile = PROFILE
 </script>

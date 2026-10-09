@@ -2,7 +2,7 @@
   <nav class="navbar">
     <!-- Mobile: brand left -->
     <div class="nav__brand">
-      <img class="nav__logo-icon" src="/img/favicon.png" alt="EM Logo" />
+      <img class="nav__logo-icon" src="/img/favicon.png" :alt="text.logoAlt" />
     </div>
 
     <div class="nav__group nav__group--left">
@@ -23,7 +23,7 @@
       </template>
     </div>
 
-    <button class="nav__hamburger" :class="{ 'is-active': isOpen }" id="hamburger" aria-label="Open menu" :aria-expanded="isOpen" @click="isOpen = !isOpen">
+    <button class="nav__hamburger" :class="{ 'is-active': isOpen }" id="hamburger" :aria-label="text.openMenuLabel" :aria-expanded="isOpen" @click="isOpen = !isOpen">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -38,9 +38,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { NAV_ITEMS } from '~/data/portfolio'
+import { NAV_ITEMS, SITE_TEXT } from '~/data/portfolio'
 
 const navItems = NAV_ITEMS
+const text = SITE_TEXT.navbar
 const isOpen = ref(false)
 
 const leftItems = computed(() => navItems.slice(0, 3))

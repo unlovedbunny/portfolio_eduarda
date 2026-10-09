@@ -12,11 +12,13 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_TEXT } from '~/data/portfolio'
+
 useSeoMeta({
-  title: 'Portfólio | Eduarda Schneider',
-  description: 'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end. Transformo designs complexos do Figma em código de alta qualidade e performance.',
-  ogTitle: 'Portfólio | Eduarda Schneider',
-  ogDescription: 'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end.',
+  title: SITE_TEXT.seo.title,
+  description: SITE_TEXT.seo.description,
+  ogTitle: SITE_TEXT.seo.ogTitle,
+  ogDescription: SITE_TEXT.seo.ogDescription,
   ogImage: '/img/schneider.png',
   ogType: 'website',
 })

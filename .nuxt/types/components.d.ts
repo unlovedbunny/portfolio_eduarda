@@ -19,6 +19,7 @@ interface _GlobalComponents {
   ExperienceSection: typeof import("../../components/ExperienceSection.vue")['default']
   HeroSection: typeof import("../../components/HeroSection.vue")['default']
   ProjectCard: typeof import("../../components/ProjectCard.vue")['default']
+  ProjectDetails: typeof import("../../components/ProjectDetails.vue")['default']
   ProjectFooter: typeof import("../../components/ProjectFooter.vue")['default']
   ProjectGallery: typeof import("../../components/ProjectGallery.vue")['default']
   ProjectHero: typeof import("../../components/ProjectHero.vue")['default']
@@ -54,6 +55,7 @@ interface _GlobalComponents {
   LazyExperienceSection: LazyComponent<typeof import("../../components/ExperienceSection.vue")['default']>
   LazyHeroSection: LazyComponent<typeof import("../../components/HeroSection.vue")['default']>
   LazyProjectCard: LazyComponent<typeof import("../../components/ProjectCard.vue")['default']>
+  LazyProjectDetails: LazyComponent<typeof import("../../components/ProjectDetails.vue")['default']>
   LazyProjectFooter: LazyComponent<typeof import("../../components/ProjectFooter.vue")['default']>
   LazyProjectGallery: LazyComponent<typeof import("../../components/ProjectGallery.vue")['default']>
   LazyProjectHero: LazyComponent<typeof import("../../components/ProjectHero.vue")['default']>

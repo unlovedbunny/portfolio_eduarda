@@ -13,7 +13,7 @@
               <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="transparent" />
               <text>
                 <textPath href="#circlePath" startOffset="0%">
-                  NÃO SE COPIA BOROGODÓ • NÃO SE COPIA BOROGODÓ •
+                  {{ text.badge }}
                 </textPath>
               </text>
             </svg>
@@ -23,7 +23,7 @@
 
       <div class="hire__content" id="contratar">
         <h2 class="hire__title">
-          Minhas <span class="hire__title--accent">Stacks</span>!
+          {{ text.title }} <span class="hire__title--accent">{{ text.titleAccent }}</span>{{ text.titleSuffix }}
         </h2>
 
         <div class="hire__skills">
@@ -38,13 +38,14 @@
         </div>
 
         <!-- CTA -->
-        <a class="hire__cta" href="#contato">Fale Comigo</a>
+        <a class="hire__cta" href="#contato">{{ text.cta }}</a>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { SKILL_GROUPS } from '~/data/portfolio'
+import { SKILL_GROUPS, SITE_TEXT } from '~/data/portfolio'
 const skillGroups = SKILL_GROUPS
+const text = SITE_TEXT.skills
 </script>

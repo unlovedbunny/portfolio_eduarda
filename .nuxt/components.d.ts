@@ -19,6 +19,7 @@ export const ContactSection: typeof import("../components/ContactSection.vue")['
 export const ExperienceSection: typeof import("../components/ExperienceSection.vue")['default']
 export const HeroSection: typeof import("../components/HeroSection.vue")['default']
 export const ProjectCard: typeof import("../components/ProjectCard.vue")['default']
+export const ProjectDetails: typeof import("../components/ProjectDetails.vue")['default']
 export const ProjectFooter: typeof import("../components/ProjectFooter.vue")['default']
 export const ProjectGallery: typeof import("../components/ProjectGallery.vue")['default']
 export const ProjectHero: typeof import("../components/ProjectHero.vue")['default']
@@ -54,6 +55,7 @@ export const LazyContactSection: LazyComponent<typeof import("../components/Cont
 export const LazyExperienceSection: LazyComponent<typeof import("../components/ExperienceSection.vue")['default']>
 export const LazyHeroSection: LazyComponent<typeof import("../components/HeroSection.vue")['default']>
 export const LazyProjectCard: LazyComponent<typeof import("../components/ProjectCard.vue")['default']>
+export const LazyProjectDetails: LazyComponent<typeof import("../components/ProjectDetails.vue")['default']>
 export const LazyProjectFooter: LazyComponent<typeof import("../components/ProjectFooter.vue")['default']>
 export const LazyProjectGallery: LazyComponent<typeof import("../components/ProjectGallery.vue")['default']>
 export const LazyProjectHero: LazyComponent<typeof import("../components/ProjectHero.vue")['default']>

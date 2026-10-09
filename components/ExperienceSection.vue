@@ -3,7 +3,7 @@
     <div class="experience__inner">
       <!-- Título -->
       <h2 class="experience__title">
-        Minha <span class="experience__title--accent">Trajetória</span>
+        {{ text.title }} <span class="experience__title--accent">{{ text.titleAccent }}</span>
       </h2>
 
       <!-- Timeline -->
@@ -30,8 +30,9 @@
 </template>
 
 <script setup lang="ts">
-import { TIMELINE } from '~/data/portfolio'
+import { TIMELINE, SITE_TEXT } from '~/data/portfolio'
 const timeline = TIMELINE
+const text = SITE_TEXT.experience
 </script>
 
 <style scoped>
