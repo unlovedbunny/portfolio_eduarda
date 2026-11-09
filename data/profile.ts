@@ -5,7 +5,7 @@ export const PROFILE: ProfileData = {
   name: 'Eduarda',
   role: 'Dev Web',
   testimonial: 'Transformo designs complexos\ndo Figma em código de alta\nqualidade e performance.',
-  yearsExperience: '1 ano +',
+  yearsExperience: '+3 anos',
   experienceLabel: 'de Experiência',
   resumeUrl: 'https://drive.google.com/file/d/12TLa30BNAoI27QSkj0j07io3R5eu4nw-/view?usp=drive_link'
 }

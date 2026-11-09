@@ -1,5 +1,10 @@
 <template>
   <section class="contact" id="contato">
+    <!-- Mãos com efeito dither (OriginKit hero-40), atrás de todo o conteúdo -->
+    <div class="contact__hands" aria-hidden="true">
+      <DitherReveal src="/img/white-hands.png" tint="#fd853a" :focus-y="48" :shift-right="0.03" />
+    </div>
+
     <div class="contact__inner">
       <!-- Cabeçalho -->
       <header class="contact__header">

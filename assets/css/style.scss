@@ -334,10 +334,18 @@ button {
   top: 380px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  text-align: center;
+  background-color: #171717;
   gap: 14px;
   z-index: 4;
 }
+
 
 .hero__stars img {
   height: 28px;
