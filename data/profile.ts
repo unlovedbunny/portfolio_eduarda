@@ -4,7 +4,7 @@ import type { ProfileData, NavItem } from '~/types/portfolio'
 export const PROFILE: ProfileData = {
   name: 'Eduarda',
   role: 'Dev Web',
-  testimonial: 'Transformo designs complexos\ndo Figma em código de alta\nqualidade e performance.',
+  testimonial: 'Transformo problemas complexos de negócios e tecnologia em código estruturado, em soluções escaláveis e de fácil manutenção.',
   yearsExperience: '+3 anos',
   experienceLabel: 'de Experiência',
   resumeUrl: 'https://drive.google.com/file/d/12TLa30BNAoI27QSkj0j07io3R5eu4nw-/view?usp=drive_link'

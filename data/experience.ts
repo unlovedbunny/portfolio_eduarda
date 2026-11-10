@@ -3,17 +3,25 @@ import type { TimelineItem } from '~/types/portfolio'
 /** Trajetória profissional e acadêmica (do mais recente para o mais antigo) */
 export const TIMELINE: TimelineItem[] = [
   {
-    company: 'XMX-Corp',
-    logo: '/img/logo.jpeg',
+    company: 'ALTAVE',
+    logo: '/img/altave.png',
     period: '10 de Julho de 2025 - Presente',
-    role: 'Dev Front-end Junior 🇺🇸',
-    description: 'Desenvolvimento com React.js, SCSS e HTML com fidelidade de 100% ao Figma. Otimização técnica de Landing Pages para tráfego pago (Core Web Vitals). Ótima em resolver conflitos e lidar com ambientes de alta demanda.',
+    role: 'Software Engineer',
+    description: 'Atuação focada em arquitetura de software, definição e organização de estruturas de sistemas escaláveis e de fácil manutenção. Implementação de padrões como MVC/MVVM, criação de boilerplates padronizados, elaboração de documentações arquiteturais (ADRs e diagramas UML) e revisão de código com foco em consistência técnica.',
     dotColor: 'orange'
+  },
+    {
+    company: 'Workana',
+    logo: '/img/workana.png',
+    period: 'Nov, 2023 - Mai, 2026',
+    role: 'Junior Technical Writer',
+    description: 'Atuação como ponte entre produto, engenharia e clientes, transformando informações técnicas em documentações claras e estruturadas. Responsável por levantamento de requisitos com clientes, criação de guias para sistemas e APIs, documentação de fluxos e arquitetura, além de materiais de suporte técnico para desenvolvedores e usuários finais.',
+    dotColor: 'dark'
   },
   {
     company: 'Ministério Público do RN',
     logo: '/img/mp-rn.jpeg',
-    period: '02 de Jun de 2025 - 07 de Jul de 2025',
+    period: 'Jun, 2025 - Dez, 2026',
     role: 'Estagiária',
     description: 'Atuação no setor de tecnologia da informação do Ministério Público do Rio Grande do Norte (MPRN), auxiliando nas demandas técnicas, suporte e acompanhamento de processos internos do órgão.',
     dotColor: 'dark'

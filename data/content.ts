@@ -20,9 +20,14 @@ export const SITE_TEXT = {
   seo: {
     title: 'Portfólio | Eduarda Schneider',
     description:
-      'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end. Transformo designs complexos do Figma em código de alta qualidade e performance.',
+      'Portfólio de Eduarda Schneider, Engenheira de Software. Transformo designs complexos do Figma em código de alta qualidade e performance.',
     ogTitle: 'Portfólio | Eduarda Schneider',
-    ogDescription: 'Portfólio de Eduarda Schneider, Desenvolvedora Web Front-end.'
+    ogDescription: 'Portfólio de Eduarda Schneider, Engenheira de Software.'
+  },
+
+  // Tela de boas-vindas: palavras exibidas em sequência antes da página aparecer
+  preloader: {
+    greetings: ['Olá', 'Hello', '你好', 'Hola', 'Привет', 'Bonjour', 'Ciao', 'Merhaba', 'こんにちは', 'مرحباً', '안녕']
   },
 
   hero: {
@@ -35,8 +40,7 @@ export const SITE_TEXT = {
   projects: {
     title: 'Alguns projetos,',
     titleAccent: ' clique e saiba +',
-    description:
-      'Desenvolvimento de interfaces modernas, responsivas e com foco absoluto em otimização e refatoração de páginas para garantir a melhor performance.'
+
   },
 
   experience: {
@@ -62,7 +66,7 @@ export const SITE_TEXT = {
   projectFooter: {
     title: 'Gostou do que viu?',
     description:
-      'Estou disponível para novos projetos. Vamos construir algo incrível juntos!',
+      'Estou disponível para novos projetos.',
     button: 'Entrar em Contato'
   },
 

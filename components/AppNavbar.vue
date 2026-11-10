@@ -13,7 +13,7 @@
     </div>
 
     <div class="nav__group nav__group--center">
-      <img class="nav__logo-icon" src="/img/favicon.png" alt="" aria-hidden="true" />
+      <img class="nav__logo-icon" src="/img/favicon.jpg" alt="" aria-hidden="true" />
     </div>
 
     <div class="nav__group nav__group--right">

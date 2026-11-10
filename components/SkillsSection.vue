@@ -3,7 +3,7 @@
     <div class="hire__card">
       <div class="hire__photo-wrap">
         <div class="hire__blob" aria-hidden="true"></div>
-        <img class="hire__photo" src="/img/schneider.png" alt="Eduarda, Front-end Developer" />
+        <img class="hire__photo" src="/img/schneider2.png" alt="Eduarda, Front-end Developer" />
         
         <!-- Borogodó Badge with Image -->
         <div class="hire__borogodo">

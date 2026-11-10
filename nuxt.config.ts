@@ -39,7 +39,7 @@ export default defineNuxtConfig({
         { name: 'og:type', content: 'website' }
       ],
       link: [
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon.png' }
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon.jpg' }
       ]
     }
   }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppPreloader />
     <main class="page">
       <AppNavbar />
       <HeroSection />
