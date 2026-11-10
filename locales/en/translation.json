@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "code": "en",
+    "name": "English",
+    "selectorAria": "Select language (current: English)",
+    "selectorListAria": "Available languages",
+    "languages": {
+      "pt-BR": "Portuguese (Brazil)",
+      "en": "English",
+      "es": "Spanish",
+      "it": "Italian"
+    }
+  },
+  "seo": {
+    "title": "Portfolio | Eduarda Schneider",
+    "description": "Portfolio of Eduarda Schneider, Software Engineer. Turning complex business and technology challenges into clean, scalable, and maintainable software.",
+    "ogTitle": "Portfolio | Eduarda Schneider",
+    "ogDescription": "Portfolio of Eduarda Schneider, Software Engineer."
+  },
+  "preloader": {
+    "greetings": [
+      "Olá",
+      "Hello",
+      "你好",
+      "Hola",
+      "Привет",
+      "Bonjour",
+      "Ciao",
+      "Merhaba",
+      "こんにちは",
+      "مرحباً",
+      "안녕"
+    ]
+  },
+  "navbar": {
+    "logoAlt": "Eduarda Schneider Logo",
+    "openMenuLabel": "Open navigation menu",
+    "navAriaLabel": "Main navigation",
+    "items": {
+      "home": "Home",
+      "trajectory": "Journey",
+      "about": "About",
+      "resume": "Resume",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "badge": "HELLO!",
+    "greeting": "Hi, I'm",
+    "name": "Eduarda",
+    "role": "and I'm a Software Engineer",
+    "testimonial": "I translate complex business and technical challenges into clean, well-structured code — building scalable, high-performance solutions that are easy to maintain.",
+    "yearsExperience": "3+ years",
+    "experienceLabel": "of Experience",
+    "ctaPortfolio": "Portfolio",
+    "ctaContact": "Contact",
+    "photoAlt": "Eduarda Schneider, Software Engineer",
+    "starsAria": "5 stars",
+    "testimonialAria": "Professional introduction",
+    "experienceAria": "Years of experience"
+  },
+  "projects": {
+    "sectionAria": "Projects gallery",
+    "title": "Selected work,",
+    "titleAccent": " click to explore +",
+    "description": "Crafting modern, responsive interfaces and scalable software architectures with a strong focus on accessibility and peak performance.",
+    "prevAria": "Previous project",
+    "nextAria": "Next project",
+    "paginationAria": "Project navigation",
+    "goToProject": "Go to",
+    "cardLink": "View Project",
+    "items": {
+      "portal-latece": {
+        "title": "LATECE Portal",
+        "eyebrow": "Institutional Portal • Assistive Technology • FINEP",
+        "description": "Official institutional portal for the Assistive Technology Laboratory at UFRN's Center for Education (LATECE), built under the FINEP-funded TECincluir initiative (2024 grant). A dedicated hub for research, training, and outreach in Assistive Technology, engineered from the ground up for accessibility and digital inclusion.",
+        "tags": [
+          "Nuxt 3",
+          "Vue 3",
+          "TypeScript",
+          "Tailwind CSS",
+          "SCSS",
+          "Pinia",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "JWT",
+          "vLIBRAS",
+          "WCAG 2.1"
+        ],
+        "links": [
+          {
+            "label": "FINEP / TECincluir Grant Call",
+            "href": "https://portal.ufrrj.br/wp-content/uploads/2024/10/edital-FINEP-TECNCLUIR.pdf"
+          },
+          {
+            "label": "Development Team",
+            "href": "https://latece.vercel.app/creditos"
+          }
+        ],
+        "sections": [
+          {
+            "title": "About the project",
+            "paragraphs": [
+              "TECincluir (Intersectoral and Interinstitutional Network of Multi-user Assistive Technology Laboratories) is funded by FINEP under the MCTI/FINEP Cross-Cutting Assistive Technology Public Call (Sisassistiva-MCTI, 2024).",
+              "As part of this initiative, I designed and built the institutional portal for LATECE (Assistive Technology Laboratory at UFRN's Center for Education), serving as a hub for research, academic training, and knowledge dissemination while adhering strictly to UFRN's engineering, design, and security standards."
+            ]
+          },
+          {
+            "title": "About the TECincluir initiative",
+            "items": [
+              {
+                "label": "General coordination",
+                "text": "Prof. Márcia Denise Pletsch (UFRRJ), with associate coordination by Izadora Souza (UFRRJ)."
+              },
+              {
+                "label": "Partner institutions",
+                "text": "CITEI (UFRRJ), LaTAI-INT (National Institute of Technology), LATECE (UFRN Center for Education), and LAR-UERN (UERN Robotics Learning Lab)."
+              },
+              {
+                "label": "Core mission",
+                "text": "Develop and validate assistive technology solutions, advance applied research, and foster the inclusion of people with disabilities."
+              }
+            ]
+          },
+          {
+            "title": "What was delivered",
+            "items": [
+              {
+                "label": "Public portal",
+                "text": "Showcase of the lab, research team, equipment, academic publications, and a full news system with filtering and pagination."
+              },
+              {
+                "label": "Admin dashboard",
+                "text": "Content management system featuring JWT-based authentication and role-based access control."
+              },
+              {
+                "label": "Visual identity",
+                "text": "Fully responsive interface across desktop, tablet, and mobile, aligned with UFRN's institutional design system."
+              }
+            ]
+          },
+          {
+            "title": "Accessibility features",
+            "items": [
+              {
+                "label": "vLIBRAS",
+                "text": "Native integration with the Brazilian Sign Language (Libras) translation suite."
+              },
+              {
+                "label": "High contrast",
+                "text": "Dedicated high-contrast theme for enhanced readability."
+              },
+              {
+                "label": "Dynamic typography",
+                "text": "On-the-fly font scaling via keyboard shortcuts and toolbar controls."
+              },
+              {
+                "label": "Screen readers & keyboard",
+                "text": "Full screen-reader compatibility, semantic ARIA attributes, and keyboard-first navigation compliant with WCAG 2.1."
+              }
+            ]
+          }
+        ],
+        "galleryAlts": []
+      },
+      "imobiliaria-react": {
+        "title": "Real Estate Platform in React",
+        "eyebrow": "Web Application • React",
+        "description": "Modern real estate web application built with React, featuring property listings, modular reusable components, and a responsive layout. Engineered with a strong focus on component architecture, state management, and seamless browsing.",
+        "tags": [
+          "React",
+          "JavaScript",
+          "Component Architecture",
+          "Responsive UI"
+        ],
+        "galleryAlts": [
+          "Real estate web platform built in React"
+        ]
+      },
+      "gestao-integrada": {
+        "title": "Essence Management System",
+        "eyebrow": "Desktop-Grade Local App • Sales & Inventory",
+        "description": "Essence is a 100% offline management system built for fragrance resellers to replace paper notebooks and spreadsheets. With zero monthly fees and no internet dependency, it streamlines inventory tracking, customer records, and overdue installment alerts in just a few clicks.",
+        "tags": [
+          "Python (Flask)",
+          "Vanilla JavaScript",
+          "SQLite",
+          "Offline-First"
+        ],
+        "galleryAlts": [
+          "Essence Integrated Management System - Main dashboard",
+          "Essence Integrated Management System - Inventory control",
+          "Essence Integrated Management System - Customer management",
+          "Essence Integrated Management System - Sales tracking",
+          "Essence Integrated Management System - Financial reports",
+          "Essence Integrated Management System - Installment & billing overview"
+        ]
+      },
+      "landing-pages": {
+        "title": "High-Conversion Landing Pages",
+        "eyebrow": "Landing Page • Paid Media & Performance",
+        "description": "High-converting landing page engineered for paid acquisition campaigns. Built with a relentless focus on technical performance — optimizing Core Web Vitals, instant load times, and a conversion-driven information architecture.",
+        "tags": [
+          "HTML",
+          "SCSS",
+          "Core Web Vitals",
+          "Web Performance"
+        ],
+        "galleryAlts": [
+          "Glucooff high-conversion landing page"
+        ]
+      },
+      "portfolio-arquiteta": {
+        "title": "Architect Portfolio Website",
+        "eyebrow": "Institutional Website • Architecture",
+        "description": "Bespoke portfolio website crafted for architect Ana Julia Ramalho, designed to showcase architectural projects with elegance and visual clarity. Features a refined editorial layout, fluid navigation, and optimized cross-device performance.",
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "galleryAlts": [
+          "Home screen of architect Ana Julia Ramalho's portfolio"
+        ]
+      },
+      "biblioteca-secoes": {
+        "title": "UI Section & Component Hub",
+        "eyebrow": "Serverless Hub • Design System",
+        "description": "A robust internal platform built for XMX-Corp to catalog, manage, and reuse modular HTML, CSS, and JavaScript UI blocks. Centralizes reusable sections with automated visual previews, database versioning, and secure access to accelerate consistent interface delivery.",
+        "tags": [
+          "Cloudflare Workers",
+          "Cloudflare D1 & R2",
+          "Vanilla JS SPA",
+          "HTML / SCSS / JS"
+        ],
+        "galleryAlts": [
+          "Reusable UI sections and components library"
+        ]
+      }
+    }
+  },
+  "experience": {
+    "title": "My",
+    "titleAccent": "Journey",
+    "logoAltPrefix": "Logo of",
+    "items": [
+      {
+        "company": "ALTAVE",
+        "period": "July 10, 2025 - Present",
+        "role": "Software Engineer",
+        "description": "Focused on software architecture, designing and structuring scalable, maintainable systems. Implementing architectural patterns such as MVC/MVVM, building standardized boilerplates, authoring technical documentation (ADRs and UML diagrams), and conducting code reviews to uphold engineering quality."
+      },
+      {
+        "company": "Workana",
+        "period": "Nov 2023 - May 2026",
+        "role": "Junior Technical Writer",
+        "description": "Bridged the gap between product, engineering, and clients by translating complex technical concepts into clear, structured documentation. Led requirements gathering, authored system and API guides, documented architecture and user flows, and produced enablement materials for both developers and end users."
+      },
+      {
+        "company": "Public Prosecutor's Office of RN (MPRN)",
+        "period": "Jun 2025 - Dec 2026",
+        "role": "IT Intern",
+        "description": "Worked within the Information Technology department at the Public Prosecutor's Office of Rio Grande do Norte (MPRN), supporting technical operations, user support, and internal digital workflows."
+      },
+      {
+        "company": "UERN",
+        "period": "2023 - In progress",
+        "role": "B.Sc. in Computer Science",
+        "description": "Undergraduate degree in Computer Science. Alongside building a strong foundation in algorithms and software engineering, served as Vice President of the Academic Directory, strengthening leadership, organization, and executive communication skills."
+      }
+    ]
+  },
+  "skills": {
+    "title": "My",
+    "titleAccent": "Tech Stack",
+    "titleSuffix": "!",
+    "cta": "Get in Touch",
+    "photoAlt": "Eduarda Schneider, Software Engineer",
+    "badge": "NÃO SE COPIA BOROGODÓ • NÃO SE COPIA BOROGODÓ •",
+    "groups": {
+      "programmingLanguages": "Programming Languages",
+      "webFrameworks": "Web & Frameworks",
+      "aiData": "Artificial Intelligence & Data",
+      "toolsInfra": "Tools & Infrastructure",
+      "backend": "Back-end",
+      "toolsData": "Tools & Analytics"
+    }
+  },
+  "contact": {
+    "title": "Let's",
+    "titleAccent": "connect",
+    "description": "Let's talk about your next project or opportunity. Feel free to reach out through any of the channels below.",
+    "openPlatformAria": "Open",
+    "platforms": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "github": "GitHub",
+      "lattes": "Lattes CV"
+    }
+  },
+  "projectFooter": {
+    "title": "Liked what you saw?",
+    "description": "I'm currently open to new projects and engineering opportunities.",
+    "button": "Get in Touch"
+  },
+  "projectPage": {
+    "seoSuffix": "Eduarda Schneider",
+    "notFoundTitle": "Project not found",
+    "backHome": "Back to home",
+    "back": "Back to projects",
+    "openOnline": "View live project",
+    "contact": "Get in touch",
+    "galleryTitle": "Project screens & walkthrough",
+    "brandAlt": "Eduarda Schneider Logo",
+    "lightboxClose": "Close preview",
+    "lightboxImageAlt": "Expanded project screenshot"
+  }
+}
+

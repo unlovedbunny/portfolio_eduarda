@@ -3,9 +3,9 @@
     <div class="hire__card">
       <div class="hire__photo-wrap">
         <div class="hire__blob" aria-hidden="true"></div>
-        <img class="hire__photo" src="/img/schneider2.png" alt="Eduarda, Front-end Developer" />
+        <img class="hire__photo" src="/img/schneider2.png" :alt="text.photoAlt" />
         
-        <!-- Borogodó Badge with Image -->
+        <!-- Borogodó Badge with Image (mantido idêntico em todos os idiomas) -->
         <div class="hire__borogodo">
           <div class="hire__borogodo-inner">
             <img src="~/assets/img/kanagawa.jpg" alt="Kanagawa" class="hire__borogodo-img" />
@@ -27,7 +27,7 @@
         </h2>
 
         <div class="hire__skills">
-          <div class="hire__skills-group" v-for="group in skillGroups" :key="group.label">
+          <div class="hire__skills-group" v-for="(group, idx) in skillGroups" :key="idx">
             <h3 class="hire__skills-label">{{ group.label }}</h3>
             <div class="hire__skills-tags">
               <span class="hire__skill-tag" v-for="skill in group.skills" :key="skill.name">
@@ -45,7 +45,9 @@
 </template>
 
 <script setup lang="ts">
-import { SKILL_GROUPS, SITE_TEXT } from '~/data/portfolio'
-const skillGroups = SKILL_GROUPS
-const text = SITE_TEXT.skills
+import { computed } from 'vue'
+import { useI18n } from '~/composables/useI18n'
+
+const { skillGroups, t } = useI18n()
+const text = computed(() => t.value.skills)
 </script>

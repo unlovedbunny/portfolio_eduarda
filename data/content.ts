@@ -31,7 +31,7 @@ export const SITE_TEXT = {
   },
 
   hero: {
-    badge: 'HELLO!',
+    badge: 'OI!',
     greeting: 'Eu me chamo',
     ctaPortfolio: 'Portfólio',
     ctaContact: 'Contato'

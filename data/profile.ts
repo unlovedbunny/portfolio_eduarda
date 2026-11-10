@@ -3,7 +3,7 @@ import type { ProfileData, NavItem } from '~/types/portfolio'
 /** Dados principais da Eduarda (seção inicial do site). Use \n para quebrar linha na frase. */
 export const PROFILE: ProfileData = {
   name: 'Eduarda',
-  role: 'Dev Web',
+  role: 'e sou Engenheira de Software',
   testimonial: 'Transformo problemas complexos de negócios e tecnologia em código estruturado, em soluções escaláveis e de fácil manutenção.',
   yearsExperience: '+3 anos',
   experienceLabel: 'de Experiência',

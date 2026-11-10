@@ -17,12 +17,12 @@
       <div class="contact__grid">
         <a
           v-for="link in contacts"
-          :key="link.platform"
+          :key="link.href"
           class="contact-card"
           :href="link.href"
           :target="link.isExternal ? '_blank' : undefined"
           :rel="link.isExternal ? 'noopener noreferrer' : undefined"
-          :aria-label="`Open ${link.platform}`"
+          :aria-label="`${text.openPlatformAria} ${link.platform}`"
         >
           <div class="contact-card__icon" :data-tooltip="link.platform">
             <img :src="link.icon" alt="" />
@@ -38,7 +38,9 @@
 </template>
 
 <script setup lang="ts">
-import { CONTACTS, SITE_TEXT } from '~/data/portfolio'
-const contacts = CONTACTS
-const text = SITE_TEXT.contact
+import { computed } from 'vue'
+import { useI18n } from '~/composables/useI18n'
+
+const { contacts, t } = useI18n()
+const text = computed(() => t.value.contact)
 </script>

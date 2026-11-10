@@ -1,5 +1,5 @@
 <template>
-  <section class="services" aria-label="Galeria de projetos">
+  <section class="services" :aria-label="text.sectionAria">
     <!-- Imagem de fundo -->
     <img class="services__bg" src="/img/bg_sobre.jpg" alt="" aria-hidden="true" />
     <div class="services__ambient" aria-hidden="true"></div>
@@ -20,7 +20,7 @@
         <button
           type="button"
           class="services__nav services__nav--prev"
-          aria-label="Projeto anterior"
+          :aria-label="text.prevAria"
           @click="prev"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -56,7 +56,7 @@
                 <button
                   type="button"
                   class="indicator-arrow indicator-arrow--left"
-                  aria-label="Projeto anterior"
+                  :aria-label="text.prevAria"
                   @click.stop="prev"
                 >
                   ←
@@ -69,7 +69,7 @@
                 <button
                   type="button"
                   class="indicator-arrow indicator-arrow--right"
-                  aria-label="Próximo projeto"
+                  :aria-label="text.nextAria"
                   @click.stop="next"
                 >
                   →
@@ -114,7 +114,7 @@
                     class="service-card__cta"
                     @click.stop
                   >
-                    <span>{{ cardText.link }}</span>
+                    <span>{{ text.cardLink }}</span>
                     <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                       <path d="M4 14L14 4M14 4H6M14 4V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -128,7 +128,7 @@
         <button
           type="button"
           class="services__nav services__nav--next"
-          aria-label="Próximo projeto"
+          :aria-label="text.nextAria"
           @click="next"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -139,14 +139,14 @@
 
       <!-- Barra inferior de progresso e indicadores -->
       <div class="services__bottom-bar">
-        <div class="services__dots" role="tablist" aria-label="Navegação entre projetos">
+        <div class="services__dots" role="tablist" :aria-label="text.paginationAria">
           <button
             v-for="(project, index) in projects"
             :key="project.slug"
             type="button"
             class="services__dot"
             :class="{ 'services__dot--active': currentIndex === index }"
-            :aria-label="`Ir para ${project.title}`"
+            :aria-label="`${text.goToProject} ${project.title}`"
             :aria-selected="currentIndex === index"
             @click="goTo(index)"
           >
@@ -160,14 +160,14 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { PROJECTS, SITE_TEXT } from '~/data/portfolio'
+import { useI18n } from '~/composables/useI18n'
 import { useCarousel } from '~/composables/useCarousel'
 
 const router = useRouter()
-const projects = PROJECTS
-const text = SITE_TEXT.projects
-const cardText = SITE_TEXT.projectCard
+const { projects, t } = useI18n()
+const text = computed(() => t.value.projects)
 
 const {
   currentIndex,
@@ -182,7 +182,7 @@ const {
   next,
   prev,
   goTo
-} = useCarousel(projects.length)
+} = useCarousel(projects.value.length)
 
 function onCardClick(index: number, slug: string) {
   if (Math.abs(dragOffset.value) > 10) return

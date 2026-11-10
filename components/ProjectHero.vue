@@ -3,9 +3,12 @@
     <NuxtLink to="/#servicesCarousel" class="pp-back">
       <IconsIconChevron /> {{ text.back }}
     </NuxtLink>
-    <div class="pp-brand">
-      <img src="/img/favicon.png" :alt="text.brandAlt" />
-      <span>{{ profile.name }}</span>
+    <div class="pp-topbar__right">
+      <div class="pp-brand">
+        <img src="/img/favicon.png" :alt="text.brandAlt" />
+        <span>{{ profile.name }}</span>
+      </div>
+      <LanguageSelector />
     </div>
   </header>
 
@@ -33,13 +36,14 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Project } from '~/types/portfolio'
-import { PROFILE, SITE_TEXT } from '~/data/portfolio'
+import { useI18n } from '~/composables/useI18n'
 
 defineProps<{
   project: Project
 }>()
 
-const text = SITE_TEXT.projectPage
-const profile = PROFILE
+const { profile, t } = useI18n()
+const text = computed(() => t.value.projectPage)
 </script>

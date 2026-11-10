@@ -5,7 +5,7 @@
     <ProjectGallery :project="project" />
     <ProjectFooter />
   </div>
-  <div v-else>
+  <div v-else class="pp-not-found">
     <h1>{{ text.notFoundTitle }}</h1>
     <NuxtLink to="/">{{ text.backHome }}</NuxtLink>
   </div>
@@ -14,22 +14,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { PROJECTS, SITE_TEXT } from '~/data/portfolio'
+import { useI18n } from '~/composables/useI18n'
 
 definePageMeta({
   layout: 'project'
 })
 
-const text = SITE_TEXT.projectPage
+const { projects, t } = useI18n()
+const text = computed(() => t.value.projectPage)
 const route = useRoute()
-const project = computed(() => PROJECTS.find(p => p.slug === route.params.slug))
+const project = computed(() => projects.value.find(p => p.slug === route.params.slug))
 
-if (project.value) {
-  useSeoMeta({
-    title: `${project.value.title} | ${text.seoSuffix}`,
-    description: project.value.description,
-    ogTitle: `${project.value.title} | ${text.seoSuffix}`,
-    ogImage: project.value.image,
-  })
-}
+useSeoMeta({
+  title: () => project.value ? `${project.value.title} | ${text.value.seoSuffix}` : text.value.notFoundTitle,
+  description: () => project.value?.description ?? '',
+  ogTitle: () => project.value ? `${project.value.title} | ${text.value.seoSuffix}` : text.value.notFoundTitle,
+  ogImage: () => project.value?.image ?? '/img/schneider2.png',
+})
 </script>

@@ -8,10 +8,10 @@
 
       <!-- Timeline -->
       <div class="timeline">
-        <article class="timeline__item" v-for="item in timeline" :key="item.company">
+        <article class="timeline__item" v-for="(item, idx) in timeline" :key="idx">
           <div class="timeline__left">
             <div class="timeline__company-wrap">
-              <img class="timeline__logo" :src="item.logo" :alt="`Logo ${item.company}`" />
+              <img class="timeline__logo" :src="item.logo" :alt="`${text.logoAltPrefix} ${item.company}`" />
               <h3 class="timeline__company">{{ item.company }}</h3>
             </div>
             <p class="timeline__period">{{ item.period }}</p>
@@ -30,9 +30,11 @@
 </template>
 
 <script setup lang="ts">
-import { TIMELINE, SITE_TEXT } from '~/data/portfolio'
-const timeline = TIMELINE
-const text = SITE_TEXT.experience
+import { computed } from 'vue'
+import { useI18n } from '~/composables/useI18n'
+
+const { timeline, t } = useI18n()
+const text = computed(() => t.value.experience)
 </script>
 
 <style scoped>

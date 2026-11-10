@@ -11,7 +11,7 @@
       </h1>
     </div>
 
-    <aside class="hero__testimonial" aria-label="Testimonial">
+    <aside class="hero__testimonial" :aria-label="text.testimonialAria">
       <img class="hero__quote-icon" src="/img/quote-up.png" alt="" aria-hidden="true" />
       <p class="hero__testimonial-text">
         <template v-for="(line, i) in testimonialLines" :key="i">
@@ -21,9 +21,9 @@
     </aside>
 
     <!-- Right experience (desktop/tablet) -->
-    <aside class="hero__experience" aria-label="Experience">
-      <div class="hero__stars" aria-label="5 stars">
-        <img src="/img/star.png" alt="5 estrelas" />
+    <aside class="hero__experience" :aria-label="text.experienceAria">
+      <div class="hero__stars" :aria-label="text.starsAria">
+        <img src="/img/star.png" :alt="text.starsAria" />
       </div>
       <p class="hero__years">{{ profile.yearsExperience }}</p>
       <p class="hero__exp-label">{{ profile.experienceLabel }}</p>
@@ -32,7 +32,7 @@
     <!-- Photo + circle + CTA -->
     <div class="hero__photo-wrap">
       <div class="hero__circle"></div>
-      <img class="hero__photo" src="/img/schneider2.png" alt="Eduarda Schneider, Front-end Developer" />
+      <img class="hero__photo" src="/img/schneider2.png" :alt="text.photoAlt" />
       <div class="hero__cta-pill">
         <NuxtLink to="#servicesCarousel" class="hero__cta-primary">
           {{ text.ctaPortfolio }}
@@ -47,8 +47,10 @@
 </template>
 
 <script setup lang="ts">
-import { PROFILE, SITE_TEXT } from '~/data/portfolio'
-const profile = PROFILE
-const text = SITE_TEXT.hero
-const testimonialLines = PROFILE.testimonial.split('\n')
+import { computed } from 'vue'
+import { useI18n } from '~/composables/useI18n'
+
+const { profile, t } = useI18n()
+const text = computed(() => t.value.hero)
+const testimonialLines = computed(() => profile.value.testimonial.split('\n'))
 </script>

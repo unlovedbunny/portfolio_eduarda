@@ -6,7 +6,7 @@
       </div>
       <h3 class="services__card-title">{{ project.title }}</h3>
       <NuxtLink :to="`/projetos/${project.slug}`" class="services__card-link">
-        {{ text.link }}
+        {{ t.projects.cardLink }}
         <IconsIconArrowUpRight />
       </NuxtLink>
     </div>
@@ -18,11 +18,11 @@
 
 <script setup lang="ts">
 import type { Project } from '~/types/portfolio'
-import { SITE_TEXT } from '~/data/portfolio'
+import { useI18n } from '~/composables/useI18n'
 
 defineProps<{
   project: Project
 }>()
 
-const text = SITE_TEXT.projectCard
+const { t } = useI18n()
 </script>

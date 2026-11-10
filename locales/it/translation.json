@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "code": "it",
+    "name": "Italiano",
+    "selectorAria": "Seleziona lingua (attuale: Italiano)",
+    "selectorListAria": "Lingue disponibili",
+    "languages": {
+      "pt-BR": "Portoghese (Brasile)",
+      "en": "Inglese",
+      "es": "Spagnolo",
+      "it": "Italiano"
+    }
+  },
+  "seo": {
+    "title": "Portfolio | Eduarda Schneider",
+    "description": "Portfolio di Eduarda Schneider, Software Engineer. Trasformo sfide complesse di business e tecnologia in software strutturato, scalabile e ad alte prestazioni.",
+    "ogTitle": "Portfolio | Eduarda Schneider",
+    "ogDescription": "Portfolio di Eduarda Schneider, Software Engineer."
+  },
+  "preloader": {
+    "greetings": [
+      "Olá",
+      "Hello",
+      "你好",
+      "Hola",
+      "Привет",
+      "Bonjour",
+      "Ciao",
+      "Merhaba",
+      "こんにちは",
+      "مرحباً",
+      "안녕"
+    ]
+  },
+  "navbar": {
+    "logoAlt": "Logo di Eduarda Schneider",
+    "openMenuLabel": "Apri menu di navigazione",
+    "navAriaLabel": "Navigazione principale",
+    "items": {
+      "home": "Home",
+      "trajectory": "Percorso",
+      "about": "Chi sono",
+      "resume": "Curriculum",
+      "projects": "Progetti",
+      "contact": "Contatti"
+    }
+  },
+  "hero": {
+    "badge": "CIAO!",
+    "greeting": "Mi chiamo",
+    "name": "Eduarda",
+    "role": "e sono una Software Engineer",
+    "testimonial": "Trasformo sfide complesse di business e tecnologia in codice ben strutturato, realizzando soluzioni scalabili, affidabili e facili da mantenere.",
+    "yearsExperience": "+3 anni",
+    "experienceLabel": "di Esperienza",
+    "ctaPortfolio": "Portfolio",
+    "ctaContact": "Contatti",
+    "photoAlt": "Eduarda Schneider, Software Engineer",
+    "starsAria": "5 stelle",
+    "testimonialAria": "Presentazione professionale",
+    "experienceAria": "Anni di esperienza"
+  },
+  "projects": {
+    "sectionAria": "Galleria dei progetti",
+    "title": "Alcuni progetti,",
+    "titleAccent": " clicca per scoprire di +",
+    "description": "Sviluppo di interfacce moderne e architetture software progettate per garantire scalabilità, accessibilità e massime prestazioni.",
+    "prevAria": "Progetto precedente",
+    "nextAria": "Progetto successivo",
+    "paginationAria": "Navigazione tra i progetti",
+    "goToProject": "Vai a",
+    "cardLink": "Vedi Progetto",
+    "items": {
+      "portal-latece": {
+        "title": "Portale LATECE",
+        "eyebrow": "Portale Istituzionale • Tecnologia Assistiva • FINEP",
+        "description": "Portale istituzionale del Laboratorio di Tecnologia Assistiva del Centro di Educazione della UFRN (LATECE), sviluppato nell'ambito del progetto TECincluir, finanziato da FINEP (bando 2024). Uno spazio dedicato alla ricerca, alla formazione e alla divulgazione sulle Tecnologie Assistive, progettato con particolare attenzione all'accessibilità e all'inclusione.",
+        "tags": [
+          "Nuxt 3",
+          "Vue 3",
+          "TypeScript",
+          "Tailwind CSS",
+          "SCSS",
+          "Pinia",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "JWT",
+          "vLIBRAS",
+          "WCAG 2.1"
+        ],
+        "links": [
+          {
+            "label": "Bando FINEP / TECincluir",
+            "href": "https://portal.ufrrj.br/wp-content/uploads/2024/10/edital-FINEP-TECNCLUIR.pdf"
+          },
+          {
+            "label": "Team di sviluppo",
+            "href": "https://latece.vercel.app/creditos"
+          }
+        ],
+        "sections": [
+          {
+            "title": "Il progetto",
+            "paragraphs": [
+              "Il progetto TECincluir (Rete Intersettoriale e Interistituzionale di Laboratori Multiutente di Tecnologia Assistiva) è finanziato da FINEP nell'ambito del Bando Pubblico MCTI/FINEP per le Tecnologie Assistive (Sisassistiva-MCTI, 2024).",
+              "All'interno di questa iniziativa ho progettato e sviluppato il portale istituzionale del LATECE (Laboratorio di Tecnologia Assistiva del Centro di Educazione della UFRN), punto di riferimento per la ricerca, la formazione accademica e la divulgazione scientifica, nel pieno rispetto degli standard tecnici, grafici e di sicurezza dell'ateneo."
+            ]
+          },
+          {
+            "title": "L'iniziativa TECincluir",
+            "items": [
+              {
+                "label": "Coordinamento generale",
+                "text": "Prof.ssa Márcia Denise Pletsch (UFRRJ), con il coordinamento aggiunto di Izadora Souza (UFRRJ)."
+              },
+              {
+                "label": "Istituzioni coinvolte",
+                "text": "CITEI (UFRRJ), LaTAI-INT (Istituto Nazionale di Tecnologia), LATECE (Centro di Educazione della UFRN) e LAR-UERN (Laboratorio di Apprendimento Robotico della UERN)."
+              },
+              {
+                "label": "Obiettivo",
+                "text": "Sviluppare e validare soluzioni di tecnologia assistiva, promuovere la ricerca applicata e favorire l'inclusione delle persone con disabilità."
+              }
+            ]
+          },
+          {
+            "title": "Cosa è stato realizzato",
+            "items": [
+              {
+                "label": "Portale pubblico",
+                "text": "Presentazione del laboratorio, del gruppo di ricerca, delle attrezzature, delle pubblicazioni e sistema di notizie con filtri e paginazione."
+              },
+              {
+                "label": "Pannello di amministrazione",
+                "text": "Sistema di gestione dei contenuti con autenticazione sicura (JWT) e controllo degli accessi basato sui ruoli."
+              },
+              {
+                "label": "Identità visiva",
+                "text": "Interfaccia completamente responsive per desktop, tablet e dispositivi mobili, in linea con il design system istituzionale della UFRN."
+              }
+            ]
+          },
+          {
+            "title": "Accessibilità",
+            "items": [
+              {
+                "label": "vLIBRAS",
+                "text": "Integrazione nativa con il sistema di traduzione automatica nella Lingua dei Segni Brasiliana (Libras)."
+              },
+              {
+                "label": "Alto contrasto",
+                "text": "Modalità ad alto contrasto per garantire una leggibilità ottimale."
+              },
+              {
+                "label": "Controllo tipografico",
+                "text": "Regolazione dinamica della dimensione del testo tramite scorciatoie e controlli dedicati."
+              },
+              {
+                "label": "Screen reader e tastiera",
+                "text": "Piena compatibilità con screen reader, attributi semantici ARIA e navigazione da tastiera secondo le linee guida WCAG 2.1."
+              }
+            ]
+          }
+        ],
+        "galleryAlts": []
+      },
+      "imobiliaria-react": {
+        "title": "Piattaforma Immobiliare in React",
+        "eyebrow": "Applicazione Web • React",
+        "description": "Piattaforma web immobiliare sviluppata in React con catalogo degli immobili, componenti modulari riutilizzabili e interfaccia responsive. Progettata con particolare cura per l'architettura dei componenti, la gestione dello stato e una navigazione fluida.",
+        "tags": [
+          "React",
+          "JavaScript",
+          "Architettura a Componenti",
+          "Design Responsive"
+        ],
+        "galleryAlts": [
+          "Piattaforma web immobiliare sviluppata in React"
+        ]
+      },
+      "gestao-integrada": {
+        "title": "Sistema Gestionale Essence",
+        "eyebrow": "Software Locale • Gestione Vendite",
+        "description": "Essence è un sistema gestionale 100% offline progettato per i rivenditori di profumeria che desiderano sostituire agende cartacee e fogli di calcolo. Senza canoni mensili né connessione internet, consente di gestire magazzino, anagrafica clienti e rate scadute in pochi clic.",
+        "tags": [
+          "Python (Flask)",
+          "Vanilla JavaScript",
+          "SQLite",
+          "Offline-First"
+        ],
+        "galleryAlts": [
+          "Sistema Gestionale Integrato Essence - Schermata principale",
+          "Sistema Gestionale Integrato Essence - Gestione magazzino",
+          "Sistema Gestionale Integrato Essence - Anagrafica clienti",
+          "Sistema Gestionale Integrato Essence - Monitoraggio vendite",
+          "Sistema Gestionale Integrato Essence - Report finanziari",
+          "Sistema Gestionale Integrato Essence - Gestione pagamenti e scadenze"
+        ]
+      },
+      "landing-pages": {
+        "title": "Landing Page ad Alta Conversione",
+        "eyebrow": "Landing Page • Paid Media & Performance",
+        "description": "Landing page ad alta conversione progettata per campagne di acquisizione a pagamento. Sviluppata con focus assoluto sulle prestazioni tecniche: ottimizzazione dei Core Web Vitals, tempi di caricamento immediati e architettura orientata alla generazione di lead.",
+        "tags": [
+          "HTML",
+          "SCSS",
+          "Core Web Vitals",
+          "Web Performance"
+        ],
+        "galleryAlts": [
+          "Landing page ad alta conversione Glucooff"
+        ]
+      },
+      "portfolio-arquiteta": {
+        "title": "Portfolio di Architettura",
+        "eyebrow": "Sito Istituzionale • Architettura",
+        "description": "Sito portfolio realizzato per l'architetta Ana Julia Ramalho, pensato per valorizzare i progetti architettonici con eleganza ed equilibrio visivo. Layout editoriale pulito, navigazione fluida e prestazioni ottimizzate su ogni dispositivo.",
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Design Responsive"
+        ],
+        "galleryAlts": [
+          "Schermata iniziale del portfolio dell'architetta Ana Julia Ramalho"
+        ]
+      },
+      "biblioteca-secoes": {
+        "title": "Gestore di Sezioni e Componenti UI",
+        "eyebrow": "Serverless Hub • Design System",
+        "description": "Piattaforma sviluppata per XMX-Corp per catalogare, gestire e riutilizzare blocchi modulari di codice HTML, CSS e JavaScript. Centralizza i componenti con anteprime automatizzate, versionamento su database e accesso sicuro per accelerare lo sviluppo di interfacce coerenti.",
+        "tags": [
+          "Cloudflare Workers",
+          "Cloudflare D1 & R2",
+          "Vanilla JS SPA",
+          "HTML / SCSS / JS"
+        ],
+        "galleryAlts": [
+          "Libreria e gestore di sezioni UI riutilizzabili"
+        ]
+      }
+    }
+  },
+  "experience": {
+    "title": "Il mio",
+    "titleAccent": "Percorso",
+    "logoAltPrefix": "Logo",
+    "items": [
+      {
+        "company": "ALTAVE",
+        "period": "10 luglio 2025 - Presente",
+        "role": "Software Engineer",
+        "description": "Attività incentrata sull'architettura del software, definizione e organizzazione di sistemi scalabili e facilmente manutenibili. Implementazione di pattern architetturali come MVC/MVVM, creazione di boilerplate standardizzati, redazione di documentazione architetturale (ADR e diagrammi UML) e code review orientate alla qualità tecnica."
+      },
+      {
+        "company": "Workana",
+        "period": "Nov 2023 - Mag 2026",
+        "role": "Junior Technical Writer",
+        "description": "Punto di raccordo tra prodotto, ingegneria e clienti, traducendo informazioni tecniche complesse in documentazione chiara e strutturata. Responsabile della raccolta dei requisiti, redazione di guide per sistemi e API, documentazione dei flussi e dell'architettura e creazione di materiali di supporto per sviluppatori e utenti finali."
+      },
+      {
+        "company": "Procura Pubblica del RN (MPRN)",
+        "period": "Giu 2025 - Dic 2026",
+        "role": "Tirocinante IT",
+        "description": "Attività presso il dipartimento di Information Technology del Ministério Público do Rio Grande do Norte (MPRN), con supporto alle esigenze tecniche, assistenza agli utenti e monitoraggio dei processi digitali interni."
+      },
+      {
+        "company": "UERN",
+        "period": "2023 - In corso",
+        "role": "Laurea in Informatica",
+        "description": "Percorso accademico in Informatica (Computer Science). Oltre allo sviluppo di solide competenze tecniche e ingegneristiche, ho ricoperto il ruolo di Vicepresidente del Direttorio Accademico del corso di laurea, affinando capacità di leadership, organizzazione e comunicazione assertiva."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Le mie",
+    "titleAccent": "Competenze",
+    "titleSuffix": "!",
+    "cta": "Contattami",
+    "photoAlt": "Eduarda Schneider, Software Engineer",
+    "badge": "NÃO SE COPIA BOROGODÓ • NÃO SE COPIA BOROGODÓ •",
+    "groups": {
+      "programmingLanguages": "Linguaggi di Programmazione",
+      "webFrameworks": "Web & Framework",
+      "aiData": "Intelligenza Artificiale & Dati",
+      "toolsInfra": "Strumenti & Infrastruttura",
+      "backend": "Back-end",
+      "toolsData": "Strumenti & Analisi Dati"
+    }
+  },
+  "contact": {
+    "title": "Parla",
+    "titleAccent": "con me",
+    "description": "Parliamo del tuo prossimo progetto o di nuove opportunità professionali. Puoi contattarmi attraverso uno qualsiasi di questi canali.",
+    "openPlatformAria": "Apri",
+    "platforms": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "github": "GitHub",
+      "lattes": "Curriculum Lattes"
+    }
+  },
+  "projectFooter": {
+    "title": "Ti è piaciuto ciò che hai visto?",
+    "description": "Sono disponibile per nuovi progetti e opportunità professionali.",
+    "button": "Mettiti in Contatto"
+  },
+  "projectPage": {
+    "seoSuffix": "Eduarda Schneider",
+    "notFoundTitle": "Progetto non trovato",
+    "backHome": "Torna alla home",
+    "back": "Torna ai progetti",
+    "openOnline": "Visita il progetto",
+    "contact": "Contattami",
+    "galleryTitle": "Schermate e dimostrazione del progetto",
+    "brandAlt": "Logo di Eduarda Schneider",
+    "lightboxClose": "Chiudi anteprima",
+    "lightboxImageAlt": "Immagine ingrandita del progetto"
+  }
+}
+

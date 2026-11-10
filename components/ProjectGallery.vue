@@ -28,14 +28,16 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Project } from '~/types/portfolio'
 import { useLightbox } from '~/composables/useLightbox'
-import { SITE_TEXT } from '~/data/portfolio'
+import { useI18n } from '~/composables/useI18n'
 
 defineProps<{
   project: Project
 }>()
 
-const text = SITE_TEXT.projectPage
+const { t } = useI18n()
+const text = computed(() => t.value.projectPage)
 const { isOpen, currentImage, openLightbox, closeLightbox } = useLightbox()
 </script>

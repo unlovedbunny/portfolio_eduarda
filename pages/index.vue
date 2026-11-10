@@ -13,14 +13,16 @@
 </template>
 
 <script setup lang="ts">
-import { SITE_TEXT } from '~/data/portfolio'
+import { useI18n } from '~/composables/useI18n'
+
+const { t } = useI18n()
 
 useSeoMeta({
-  title: SITE_TEXT.seo.title,
-  description: SITE_TEXT.seo.description,
-  ogTitle: SITE_TEXT.seo.ogTitle,
-  ogDescription: SITE_TEXT.seo.ogDescription,
-  ogImage: '/img/schneider.png',
+  title: () => t.value.seo.title,
+  description: () => t.value.seo.description,
+  ogTitle: () => t.value.seo.ogTitle,
+  ogDescription: () => t.value.seo.ogDescription,
+  ogImage: '/img/schneider2.png',
   ogType: 'website',
 })
 </script>
